@@ -54,6 +54,8 @@ The main snippet UI is `/snippet ...`. The bot also keeps quick text shortcuts f
 - OS releases: endoflife.date API for Windows, macOS, Ubuntu, Debian, RHEL, FreeBSD, OpenBSD, and NetBSD.
 Made by Dictator Of Cake
 Discord Server: https://discord.gg/SYhjR2bC2C or https://discord.gg/xwYRwwBBJT
+There is some bugs ab module and function
+
 
 The bot stores seen CVEs/releases in SQLite, so scheduled checks stay silent when there is nothing new.
 
