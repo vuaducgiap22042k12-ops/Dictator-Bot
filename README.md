@@ -52,6 +52,8 @@ The main snippet UI is `/snippet ...`. The bot also keeps quick text shortcuts f
 
 - CVEs: NVD CVE API v2.0, filtered to Linux, Windows, macOS, and BSD.
 - OS releases: endoflife.date API for Windows, macOS, Ubuntu, Debian, RHEL, FreeBSD, OpenBSD, and NetBSD.
+Made by Dictator Of Cake
+Discord Server: https://discord.gg/SYhjR2bC2C or https://discord.gg/xwYRwwBBJT
 
 The bot stores seen CVEs/releases in SQLite, so scheduled checks stay silent when there is nothing new.
 
