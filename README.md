@@ -62,3 +62,59 @@ The bot stores seen CVEs/releases in SQLite, so scheduled checks stay silent whe
 ## Quick Ask Note
 
 Discord embeds cannot render an interactive website or web form inside chat. The bot posts an embed with buttons that open AI websites directly, then deletes the embed after 30 seconds.
+Some bugs:
+PS C:\Dictator bot> cargo run
+   Compiling dictator-bot v0.1.0 (C:\Dictator bot)
+error[E0425]: cannot find function `fetch_recent` in module `cve`
+   --> src\commands.rs:172:22
+    |
+172 |     let items = cve::fetch_recent(&state.http, 48).await?;
+    |                      ^^^^^^^^^^^^ not found in `cve`
+
+error[E0277]: the size for values of type `[CveItem]` cannot be known at compilation time
+   --> src\commands.rs:172:9
+    |
+172 |     let items = cve::fetch_recent(&state.http, 48).await?;
+    |         ^^^^^ doesn't have a size known at compile-time
+    |
+    = help: the trait `Sized` is not implemented for `[CveItem]`
+    = note: all local variables must have a statically known size
+
+error[E0277]: the size for values of type `[CveItem]` cannot be known at compilation time
+   --> src\commands.rs:172:17
+    |
+172 |     let items = cve::fetch_recent(&state.http, 48).await?;
+    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ doesn't have a size known at compile-time
+    |
+    = help: the trait `Sized` is not implemented for `[CveItem]`
+    = note: all local variables must have a statically known size
+
+error[E0277]: the size for values of type `[CveItem]` cannot be known at compilation time
+   --> src\commands.rs:172:57
+    |
+172 |     let items = cve::fetch_recent(&state.http, 48).await?;
+    |                                                         ^ doesn't have a size known at compile-time
+    |
+    = help: the trait `Sized` is not implemented for `[CveItem]`
+note: required by an implicit `Sized` bound in `ControlFlow`
+   --> C:\Users\TD_999\.rustup\toolchains\stable-x86_64-pc-windows-msvc\lib/rustlib/src/rust\library\core\src\ops\control_flow.rs:89:25
+    |
+ 89 | pub enum ControlFlow<B, C = ()> {
+    |                         ^^^^^^ required by the implicit `Sized` requirement on this type parameter in `ControlFlow`
+
+error[E0277]: the size for values of type `[CveItem]` cannot be known at compilation time
+   --> src\commands.rs:172:17
+    |
+172 |     let items = cve::fetch_recent(&state.http, 48).await?;
+    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ doesn't have a size known at compile-time
+    |
+    = help: the trait `Sized` is not implemented for `[CveItem]`
+note: required by an implicit `Sized` bound in `ControlFlow`
+   --> C:\Users\TD_999\.rustup\toolchains\stable-x86_64-pc-windows-msvc\lib/rustlib/src/rust\library\core\src\ops\control_flow.rs:89:25
+    |
+ 89 | pub enum ControlFlow<B, C = ()> {
+    |                         ^^^^^^ required by the implicit `Sized` requirement on this type parameter in `ControlFlow`
+
+Some errors have detailed explanations: E0277, E0425.
+For more information about an error, try `rustc --explain E0277`.
+error: could not compile `dictator-bot` (bin "dictator-bot") due to 5 previous errors
